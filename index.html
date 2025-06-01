@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meu Portfólio - Taian Mendes Machado</title>
+
+    <meta name="description" content="Portfólio de Taian Mendes Machado, engenheiro de software especializado em Java.">
+    <meta name="author" content="Taian Mendes Machado">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="painel-texto">
+            <img src="imagens/me.jpg" alt="Foto de perfil de Taian Mendes Machado" class="foto-perfil" />
+            <h1>Taian Mendes Machado</h1>
+            <h4>Engenheiro de Software Java</h4>
+        </div>
+    </header>
+
+    <!-- Seção Sobre oculta para SEO -->
+    <section id="sobre" hidden>
+        <h2>Sobre mim</h2>
+        <p>Sou um desenvolvedor apaixonado por tecnologia e sempre buscando novos desafios.</p>
+    </section>
+
+    <!-- Modal Sobre -->
+    <div id="modalSobre" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle"
+        aria-describedby="modalDescricao">
+        <div class="modal-content" tabindex="0">
+            <button class="close-btn" id="closeModal" aria-label="Fechar modal">&times;</button>
+            <h2 id="modalTitle">Sobre mim</h2>
+            <p id="modalDescricao">
+                Sou formado em Análise e Desenvolvimento de Sistemas, com um curso de extensão em Java Avançado. Possuo
+                duas certificações Microsoft Azure: AZ-900 (Fundamentos de Cloud) e AI-900 (Fundamentos de Inteligência
+                Artificial), acompanhadas de cursos específicos que consolidaram meus conhecimentos nessas áreas.
+
+                Também realizei cursos de testes unitários e de integração com Java, além de formação em Git, SQL e
+                protocolos de comunicação HTTP e HTTPS, ampliando minhas competências em desenvolvimento seguro e
+                eficiente.
+
+                Atualmente, estou estudando inglês, no nível Básico 2, para aprimorar ainda mais minhas habilidades
+                profissionais e de comunicação.
+            </p>
+        </div>
+    </div>
+
+    <div id="modalExperiencia" class="modal" aria-hidden="true" role="dialog" aria-modal="true"
+        aria-labelledby="modalExperienciaTitle" aria-describedby="modalExperienciaDescricao">
+        <div class="modal-content" tabindex="0">
+            <button class="close-btn" id="closeModalExperiencia" aria-label="Fechar modal">&times;</button>
+            <h2 id="modalExperienciaTitle">Experiência Profissional</h2>
+
+            <div class="experiencia-container" style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <!-- Lista de empresas -->
+                <nav class="empresas-lista" style="min-width: 200px;">
+                    <ul style="list-style: none; padding: 0;">
+                        <li><button class="empresa-btn active" data-empresa="public" aria-selected="true">Public
+                                Supermercados (2019 - 2021)</button></li>
+                        <li><button class="empresa-btn" data-empresa="7comm" aria-selected="false">7comm Consultoria
+                                (2022 - 2024)</button></li>
+                        <li><button class="empresa-btn" data-empresa="accenture" aria-selected="false">Accenture (2024 -
+                                Atualmente)</button></li>
+                    </ul>
+                </nav>
+
+                <!-- Área de descrição da experiência -->
+                <section class="empresa-descricao" id="modalExperienciaDescricao" style="flex: 1;">
+                    <div class="descricao-item" data-empresa="public">
+                        <p><strong>Public Supermercados</strong> (2019 - 2021)</p>
+                        <p>Iniciei minha carreira como Analista de TI Júnior, onde fui responsável pela manutenção,
+                            organização e suporte da infraestrutura de TI. No Public, realizava a manutenção de PDVs,
+                            balanças, abertura de chamados, cotação de equipamentos, instalação e configuração de
+                            câmeras, além do suporte geral à loja e ao sistema de monitoramento. Também cuidava da
+                            instalação de programas e formatação de computadores. Posteriormente, fui efetivado para
+                            Analista de TI Pleno, assumindo atividades relacionadas à administração de servidores e ao
+                            ERP Bluesoft da loja.</p>
+                    </div>
+
+                    <div class="descricao-item" data-empresa="7comm" style="display:none;">
+                        <p><strong>7comm Consultoria</strong> (2022 - 2024)</p>
+                        <p>Após uma migração da
+                            área de Suporte para a área de Desenvolvimento, iniciei como desenvolvedor na
+                            7comm Consultoria de TI.
+
+                            Atuei alocado no setor bancário para projetos do banco Bradesco entre 2022 e 2024,
+                            trabalhando na manutenção e evolução de sistemas legados, realizando correções de bugs e
+                            implementando novas funcionalidades que agregaram valor aos processos do cliente.
+
+                            Utilizei diversas versões do Java (6 a 11) e frameworks como Angular, JSF e JSP, além de
+                            configurar ambientes no WebSphere 8.5. Adquiri sólida experiência com bancos de dados como
+                            SQL Server, MySQL e PostgreSQL, assegurando eficiência e confiabilidade nas
+                            operações.
+
+                            Também fui responsável pela implementação de testes unitários e de integração, participando
+                            ativamente das reuniões diárias e colaborando diretamente com a equipe e o cliente para
+                            alcançar os melhores resultados.</p>
+                    </div>
+
+                    <div class="descricao-item" data-empresa="accenture" style="display:none;">
+                        <p><strong>Accenture</strong> (2024 - Atualmente)</p>
+                        <p>Aqui você coloca sua experiência detalhada na Accenture, descrevendo suas funções atuais,
+                            responsabilidades, tecnologias e projetos em que está trabalhando.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+
+    <section id="projetos">
+        <div class="projetos-grid">
+
+            <!-- Sobre - Abre modal -->
+            <div class="projeto" id="abrirModalSobre" style="cursor:pointer;">
+                <h3>Sobre</h3>
+                <p>Clique aqui para saber mais sobre mim.</p>
+            </div>
+
+            <!-- Experiência - Abre modal -->
+            <div class="projeto" id="abrirModalExperiencia" style="cursor:pointer;">
+                <h3>Experiências</h3>
+                <p>Clique aqui para saber mais sobre minha trajetória profissional.</p>
+            </div>
+
+            <!-- Projetos - Link para o GitHub -->
+            <a href="https://github.com/taian10" target="_blank" rel="noopener noreferrer" class="projeto"
+                style="text-decoration:none; color:inherit;">
+                <h3>Projetos</h3>
+                <p>Veja meus projetos no GitHub.</p>
+            </a>
+        </div>
+    </section>
+
+    <section id="tecnologias" class="tecnologias">
+        <div class="tecnologias-logos">
+            <img src="imagens/java.png" alt="Java">
+            <img src="imagens/quarkus.png" alt="Quarkus">
+            <img src="imagens/spring.png" alt="Springboot">
+            <img src="imagens/mysql.png" alt="MySQL">
+            <img src="imagens/sqlserver.png" alt="SQL Server">
+            <img src="imagens/postgresql.png" alt="PostgreSQL">
+            <img src="imagens/azure.png" alt="Azure">
+            <img src="imagens/aws.png" alt="AWS">
+            <img src="imagens/postman.png" alt="Postman">
+        </div>
+    </section>
+
+
+    <section id="contatosFixos">
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/taianmendes/" target="_blank" class="linkedin-btn"
+            rel="noopener noreferrer" aria-label="LinkedIn">
+            LinkedIn
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:taianmendes@hotmail.com" class="email-btn" aria-label="Enviar email">
+            Email
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/11948741115" target="_blank" class="whatsapp-btn" rel="noopener noreferrer"
+            aria-label="WhatsApp">
+            WhatsApp
+        </a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 - Taian Mendes Machado</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

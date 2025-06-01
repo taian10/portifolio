@@ -1,0 +1,580 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    background: #f4f4f4;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* HEADER com imagem de fundo e painel texto na base */
+header {
+    background-image: url('imagens/capa.jpg'); /* Ajuste o caminho da imagem */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 0;
+    position: relative;
+    height: 300px; /* altura do header */
+    display: flex;
+    align-items: flex-end; /* posiciona painel texto na base */
+    justify-content: center;
+}
+
+/* Painel texto sobre a imagem */
+.painel-texto {
+    background-color: rgba(0, 0, 0, 0.6); /* fundo preto translúcido */
+    padding: 20px 30px;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* sombra suave para destaque */
+}
+
+.painel-texto h1,
+.painel-texto p {
+    margin: 0;
+    color: #fff;
+}
+
+/* Foto de perfil - exemplo */
+/*.foto-perfil {
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+*/
+/* Navegação */
+nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+nav button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+/* Seções */
+section {
+    padding: 20px;
+}
+
+.projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.projeto {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.projeto:hover {
+    transform: scale(1.05);
+}
+
+/* Rodapé fixo */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 100;
+}
+
+/* Dark mode */
+.dark-mode {
+    background: #121212;
+    color: #f4f4f4;
+}
+
+.dark-mode header,
+.dark-mode footer {
+    background: #1f1f1f;
+}
+
+/* Botões LinkedIn e Email fixos acima do rodapé */
+#contatosFixos {
+    position: fixed;
+    bottom: 40px; /* 40px acima do rodapé */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    z-index: 105;
+    background: transparent;
+}
+
+.linkedin-btn,
+.email-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    font-size: 1rem;
+    user-select: none;
+    cursor: pointer;
+}
+
+.linkedin-btn {
+    background-color: #0077b5;
+    box-shadow: 0 2px 6px rgba(0, 119, 181, 0.5);
+}
+
+.linkedin-btn:hover,
+.linkedin-btn:focus {
+    background-color: #005582;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 119, 181, 0.7);
+    outline: none;
+}
+
+.email-btn {
+    background-color: #d15d0f; /* roxo escuro */
+    box-shadow: 0 2px 6px rgba(146, 84, 2, 0.5);
+}
+
+.email-btn:hover,
+.email-btn:focus {
+    background-color: #4a148c; /* roxo mais escuro no hover */
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(74, 20, 140, 0.7);
+    outline: none;
+}
+
+/* Modal (caso use) */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px 40px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    position: relative;
+    font-size: 1.1rem;
+    color: #222;
+}
+
+.modal.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #555;
+    background: transparent;
+    border: none;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #0077b5;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #25D366; /* Verde oficial WhatsApp */
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(37, 211, 102, 0.5);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    font-size: 1rem;
+    user-select: none;
+    cursor: pointer;
+}
+
+.whatsapp-btn:hover,
+.whatsapp-btn:focus {
+    background-color: #1ebe57;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(30, 190, 87, 0.7);
+    outline: none;
+}
+
+.empresas-lista button {
+  display: block;
+  width: 100%;
+  background: #eee;
+  border: none;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.empresas-lista button:hover,
+.empresas-lista button:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.empresas-lista button.active {
+  background-color: #0077b5;
+  color: white;
+}
+
+/* Modal maior e mais centralizado */
+#modalExperiencia .modal-content {
+  max-width: 1300px;
+  max-height: 80vh;
+  width: 90%;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Container das empresas - largura fixa */
+.empresas-lista {
+  min-width: 250px;
+  max-height: 70vh;
+  overflow-y: auto;
+  border-right: 2px solid #ddd;
+  padding-right: 15px;
+}
+
+/* Botões das empresas */
+.empresas-lista button {
+  background: #f0f0f0;
+  border: none;
+  padding: 12px 20px;
+  margin-bottom: 12px;
+  width: 100%;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+}
+
+.empresas-lista button:hover,
+.empresas-lista button:focus {
+  background-color: #0077b5;
+  color: white;
+  outline: none;
+  box-shadow: 0 4px 10px rgb(0 119 181 / 0.5);
+}
+
+.empresas-lista button.active {
+  background-color: #005582;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgb(0 119 181 / 0.8);
+}
+
+/* Área da descrição - ocupa o restante */
+.empresa-descricao {
+  flex: 1;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-left: 20px;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #222;
+  text-align: justify;
+}
+
+/* Parágrafos mais espaçados */
+.empresa-descricao p {
+  margin-bottom: 16px;
+}
+
+/* Título dentro da descrição */
+.empresa-descricao p strong {
+  font-size: 1.3rem;
+  display: block;
+  margin-bottom: 12px;
+  color: #0077b5;
+}
+
+/* Ajuste botão fechar */
+#closeModalExperiencia {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: #666;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 1010;
+}
+
+#closeModalExperiencia:hover {
+  color: #0077b5;
+}
+
+/* Responsivo: para telas menores, modal vira coluna */
+@media (max-width: 720px) {
+  #modalExperiencia .modal-content {
+    flex-direction: column;
+    max-height: 90vh;
+    padding: 20px 25px;
+  }
+
+  .empresas-lista {
+    min-width: auto;
+    max-height: 150px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-right: none;
+    border-bottom: 2px solid #ddd;
+    padding-right: 0;
+    padding-bottom: 10px;
+    white-space: nowrap;
+  }
+
+  .empresas-lista button {
+    display: inline-block;
+    margin-right: 12px;
+    margin-bottom: 0;
+    border-radius: 6px;
+  }
+
+  .empresa-descricao {
+    max-height: 60vh;
+    padding-left: 0;
+    margin-top: 15px;
+  }
+}
+
+#modalExperiencia h2 {
+  display: none;
+}
+
+.empresas-lista button {
+  background: #f0f0f0;
+  border: none;
+  padding: 12px 20px;
+  margin-bottom: 12px;
+  width: 100%;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+  color: #222; /* cor do texto escura e visível */
+}
+
+.empresas-lista button:hover,
+.empresas-lista button:focus {
+  background-color: #0077b5;
+  color: white;
+  outline: none;
+  box-shadow: 0 4px 10px rgb(0 119 181 / 0.5);
+}
+
+.empresas-lista button.active {
+  background-color: #005582;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgb(0 119 181 / 0.8);
+}
+
+.tecnologias {
+  padding: 0px 20px 100px;
+  text-align: center;
+}
+
+.tecnologias h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #0077b5;
+}
+
+.tecnologias-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  animation: fadeSlideIn 2s ease forwards;
+}
+
+.tecnologias-logos img {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  object-fit: contain;
+  filter: grayscale(50%);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.tecnologias-logos img:hover {
+  transform: scale(1.3);
+  filter: grayscale(0%);
+}
+
+/* Animação fade + slide */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade: diminui tamanho dos logos em telas pequenas */
+@media (max-width: 600px) {
+  .tecnologias-logos img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+  header {
+    height: 200px; /* menor altura no celular */
+    padding: 10px;
+  }
+
+  .painel-texto {
+    padding: 15px 20px;
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 600px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    margin: 8px 0;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  #contatosFixos {
+    bottom: 30px; /* para dar espaço no celular */
+    
+    width: 90%;
+    max-width: 320px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .linkedin-btn,
+  .email-btn,
+  .whatsapp-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media (max-width: 600px) {
+  .modal-content {
+    max-width: 90%;
+    padding: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .foto-perfil {
+    width: 120px;
+    height: 120px;
+  }
+}
+.foto-perfil {
+    width: 21vw;       /* largura baseada na viewport */
+    max-width: 180px;  /* máximo de 180px para desktop */
+    height: auto;      /* altura automática para manter proporção */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+
+
+
+
+
+
+
+
+
+
